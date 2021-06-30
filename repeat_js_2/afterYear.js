@@ -41,6 +41,10 @@ usersAfterYear.map(function (user, index, usersArr) {
   }
 });
 
+// usersAfterYear.map(user => user.age++);
+// usersAfterYear.filter(user => user.age >= 18);
+
+
 // На основании массива usersAfterYear, полученного на основании предыдущего задания создать новый массив usersAfterYearUniqueAge, 
 // в котором нет пользователей с одинаковым возрастом. Если у вас есть два пользователя ({id: 2, name: "Петя", age: 19}
 //  и {id: 4, name: "Света", age: 19}, то вы должны оставить только Петю или Свету одного а не их двоих). 
@@ -48,5 +52,5 @@ usersAfterYear.map(function (user, index, usersArr) {
 
 
 let usersAfterYearUniqueAge = usersAfterYear.filter(function(user, pos,arr){
-    return  arr.findIndex(user.age) = pos;
+    arr.indexOf(user.age) ==  pos;
 });

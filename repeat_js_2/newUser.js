@@ -24,7 +24,14 @@ function showInfo(){
 let infoFirstUser = showInfo.bind(firstUser);
 
 let infoSecondUser = showInfo.bind(secondUser);
-
-
 infoFirstUser();
 infoSecondUser();
+
+
+
+// через прототип
+User.prototype.showInfo = function (){
+    return `Name: ${this.name}, Surname: ${this.surname}, Age: ${this.age}, City: ${this.city},`
+}
+
+
