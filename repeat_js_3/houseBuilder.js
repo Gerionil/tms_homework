@@ -27,5 +27,8 @@ function calcArea (){
     return this.width * this.length * this.floorAmount;
 }
 
-HouseBuilder.prototype.calcArea = calcArea();
+HouseBuilder.prototype.calcArea = function(){
+        let totalArea = this.width * this.length * this.floorAmount
+    return totalArea;
+}
 
