@@ -10,17 +10,4 @@ let user = {
   city: "Minsk",
 };
 
-let userName;
-let userYears;
-let userCar;
-let userOtherInfo;
-
-function setUserInfo(name, years, car, ...otherInfo){
-     userName = name;
-     userYears = years;
-     userCar = car;
-     userOtherInfo = {...otherInfo};
-};
-
-
-setUserInfo(user.name, user.years, user.car, user.telePhone, user.city);
+let {name: userName, years: userYears, car: userCar, ...userOtherInfo} = user;

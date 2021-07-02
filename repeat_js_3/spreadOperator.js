@@ -2,10 +2,7 @@
 // следования элементов запишите первые два элемента массива в переменные firstElement, secondElement, число 89 (четвертый элемент 
 // массива) в переменную fifthElement. Остальные элементы после 89 запишите в массив otherElements;
 
-let arr = [1, "str", 24, {name: "Ivan"}, 89, undeifined, "10"]
+let arr = [1, "str", 24, {name: "Ivan"}, 89, undefined, "10"];
 
-let firstElement;
-let secondElement;
-let fifthElement;
-let otherElements;
 
+let [firstElement, secondElement, , , fifthElement, ...otherElements] = arr;

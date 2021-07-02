@@ -11,24 +11,17 @@ function HouseBuilder(width, length, floorAmount){
     this.totalArea;
 }
 
-
 let firstHouse = new HouseBuilder(20, 30, 3);
-
 let secondHouse = new HouseBuilder(20, 50, 2);
-
-
 
 // Создайте метод calcArea который будет возвращать суммарную площадь всех этажей дома.
 // Данный метод занести в прототип конструктора. Вызвать данный метод на каждом созданном объекте
 // и результат записать в поле totalArea каждого объекта. 
 
 function calcArea (){
-    
-    return this.width * this.length * this.floorAmount;
+    return this.totalArea = this.width * this.length * this.floorAmount;
 }
 
-HouseBuilder.prototype.calcArea = function(){
-        let totalArea = this.width * this.length * this.floorAmount
-    return totalArea;
-}
+HouseBuilder.prototype.calcArea = calcArea;
+
 
