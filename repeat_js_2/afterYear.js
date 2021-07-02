@@ -31,18 +31,12 @@ let users = [
   { id: 12, name: "Денис", age: 20 },
 ];
 
-// let usersAfterYear = users.slice();
-let  usersAfterYear = JSON.parse(JSON.stringify(users))
+let  usersAfterYear = JSON.parse(JSON.stringify(users));
 
-usersAfterYear.map(function (user, index, usersArr) {
+usersAfterYear = usersAfterYear.map(user => {
   user.age++;
-  if (user.age < 18) {
-    usersArr.splice(index, 1);
-  }
-});
-
-// usersAfterYear.map(user => user.age++);
-// usersAfterYear.filter(user => user.age >= 18);
+  return user
+}).filter(user => user.age >= 18);
 
 
 // На основании массива usersAfterYear, полученного на основании предыдущего задания создать новый массив usersAfterYearUniqueAge, 
@@ -51,6 +45,9 @@ usersAfterYear.map(function (user, index, usersArr) {
 // (Это задание похоже на первое задания про массив arr и arrUnique)
 
 
-let usersAfterYearUniqueAge = usersAfterYear.filter(function(user, pos,arr){
-    arr.indexOf(user.age) ==  pos;
-});
+
+let usersAfterYearUniqueAge = usersAfterYear.filter((user, pos) => pos === usersAfterYear.findIndex( user1 => user1.age === user.age) );
+
+
+
+
