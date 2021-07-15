@@ -20,7 +20,7 @@ function cleanRoom(dirtyLevel = 0){
 
 cleanRoom(12).then(
     result => console.log(`Уборка проведена за ${result} секунд`),
-    err => console.log(`Уборка проведена со сложностями за ${err} секунд`)
+    err => console.log(`Слишком высокий уровень загрязнения. Уборка не выполнена`)
 );
 
 
