@@ -16,26 +16,28 @@ function cleanRoom(dirtyLevel = 0){
     })
     
 }
-
-cleanRoom(1)
+function cleanRooms(dirtyLevel_1 = 0, dirtyLevel_2 = 0, dirtyLevel_3= 0 ){
+    cleanRoom(dirtyLevel_1)
 .then(
     result => {
-        // console.log('Первая комната убрана за ', result);
-        return cleanRoom(5);
+        console.log(`Первая комната убрана за ${result}`);
+        return cleanRoom(dirtyLevel_2);
     }
 )
 .then (
     result => {
-        // console.log('Вторая комната убрана',result);
-        return cleanRoom(4);
+        console.log(`Вторая комната убрана за ${result}`);
+        return cleanRoom(dirtyLevel_3);
     }
 )
 .then (
-    result => {
-        console.log('Уборка всех комнат завершена',);
-    }
+    result => console.log(`Третья комната убрана за ${result}. Уборка завершена!`)
 )
 .catch( error => console.log('Невозможно. Уровень загрязнения',error))
+}
+
+
+cleanRooms(1,2,3);
 
 // На основанни задачи из прошлого дамашнего задания сделайте так, чтобы можно было осуществить параллельную уборку трех комнат. 
 // 	  Только после того как уборка всех комнат завершена, пользователь может заявить об окончании уборки. 
@@ -44,11 +46,27 @@ cleanRoom(1)
 // 	  должна принимать три аргемента, каждый из кторых описывает уровень загрязнения каждой комнаты. 
 
 
-Promise.all([
-    cleanRoom(2),
-    cleanRoom(2),
-    cleanRoom(2)
-]).then(
-    result => console.log('Уборка выполнена'),
-    err => console.log('Невозможно')
-)
+
+function cleanRoom2(dirtyLevel = 0){
+
+    return new Promise(function(resolve,reject){
+        if (dirtyLevel >= 0 && dirtyLevel <= 4){
+        setTimeout(() => resolve(dirtyLevel), dirtyLevel * 1000);
+        } else if(dirtyLevel > 4){
+            setTimeout(() =>reject(dirtyLevel), dirtyLevel * 1000);
+        }
+    })
+    
+}
+
+function cleanRooms2(dirtyLevel_1 = 0, dirtyLevel_2 = 0, dirtyLevel_3= 0 ){
+    Promise.all([
+        cleanRoom2(dirtyLevel_1),
+        cleanRoom2(dirtyLevel_2),
+        cleanRoom2(dirtyLevel_3),
+    ]).then(
+        result => console.log('Уборка выполнена'),
+        err => console.log('Невозможно')
+    )
+}
+cleanRooms2(1,2,3);
